@@ -9,7 +9,7 @@ export function Projects() {
       id="projects"
       eyebrow="Projects"
       title="Selected security engineering work"
-      description="Practical work across pipelines, containers, cloud baselines, and compliance automation."
+      description="Practical work across pipelines, containers, and cloud security baselines."
     >
       <div className="grid gap-6 lg:grid-cols-2">
         {PROJECTS.map((p) => (

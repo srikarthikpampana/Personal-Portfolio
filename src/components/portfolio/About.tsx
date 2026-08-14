@@ -5,7 +5,7 @@ const PILLARS = [
   { icon: Code2, title: "Development background", body: "Comfortable reading and fixing code, not just reporting findings." },
   { icon: Cloud, title: "Cloud & DevOps", body: "Hands-on with AWS, containers, CI/CD, and infrastructure as code." },
   { icon: ShieldCheck, title: "Security remediation", body: "Container and application vulnerabilities fixed and verified." },
-  { icon: FileCheck, title: "Compliance direction", body: "Moving into SOC 2 control mapping and evidence automation." },
+  { icon: FileCheck, title: "Automation mindset", body: "Repeatable checks live in pipelines, not checklists — so fixes stay fixed." },
 ];
 
 export function About() {
@@ -24,9 +24,9 @@ export function About() {
             and working with developers to close application findings properly rather than suppressing them.
           </p>
           <p>
-            Alongside that, I am moving into SOC 2 compliance work — mapping the technical controls we
-            already run to audit requirements and automating the evidence behind them. Automation is the
-            common thread: if a check is repeatable, it belongs in a pipeline, not a checklist.
+            Automation is the common thread across my work: if a check is repeatable, it belongs in a
+            pipeline, not a checklist. That mindset keeps fixes from regressing and lets security scale
+            with the platform instead of chasing it.
           </p>
           <p>
             I am targeting DevSecOps and Cloud Security engineering roles at product-based companies, where

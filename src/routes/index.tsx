@@ -12,7 +12,7 @@ import { Footer } from "@/components/portfolio/Footer";
 
 const TITLE = "Sri Karthik Pampana — DevSecOps & Cloud Security Engineer";
 const DESCRIPTION =
-  "Portfolio of Sri Karthik Pampana: DevSecOps and Cloud Security Engineer working across container security, AppSec remediation, AWS, CI/CD, and SOC 2 compliance.";
+  "Portfolio of Sri Karthik Pampana: DevSecOps and Cloud Security Engineer working across container security, AppSec remediation, AWS, and CI/CD.";
 
 export const Route = createFileRoute("/")({
   head: () => ({

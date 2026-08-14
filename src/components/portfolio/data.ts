@@ -12,7 +12,7 @@ import {
 
 export const PROFILE = {
   name: "Sri Karthik Pampana",
-  title: "DevSecOps Engineer | Cloud Security | Container Security | SOC 2",
+  title: "DevSecOps Engineer | Cloud Security | Container Security",
   subtitle:
     "I build secure, automated, cloud-ready systems and remediate vulnerabilities across containers, applications, and infrastructure.",
   email: "karthik@example.com",
@@ -25,7 +25,7 @@ export const STATS = [
   { value: 120, suffix: "+", label: "Vulnerabilities remediated" },
   { value: 40, suffix: "+", label: "Container images hardened" },
   { value: 15, suffix: "+", label: "Pipelines secured" },
-  { value: 5, suffix: "", label: "SOC 2 control areas supported" },
+  { value: 25, suffix: "+", label: "Automated security checks" },
 ];
 
 export type SkillGroup = { icon: LucideIcon; title: string; items: string[] };
@@ -50,7 +50,6 @@ export const SKILL_GROUPS: SkillGroup[] = [
       "Vulnerability remediation",
       "Secrets management",
       "Secure SDLC",
-      "SOC 2",
     ],
   },
   {
@@ -61,7 +60,7 @@ export const SKILL_GROUPS: SkillGroup[] = [
   {
     icon: Users,
     title: "Collaboration",
-    items: ["Documentation", "Incident support", "Compliance coordination"],
+    items: ["Documentation", "Incident support", "Stakeholder coordination"],
   },
   {
     icon: Lock,
@@ -94,12 +93,6 @@ export const TIMELINE = [
     title: "Application Security Remediation",
     body: "Worked with development teams to resolve application vulnerabilities, validate fixes, and prevent regressions through pipeline checks.",
     tags: ["AppSec", "SAST/DAST", "Secure SDLC"],
-  },
-  {
-    phase: "Phase 05",
-    title: "SOC 2 Compliance",
-    body: "Currently moving into SOC 2 work — mapping technical controls to requirements, collecting evidence, and automating repeatable checks.",
-    tags: ["SOC 2", "Evidence", "Controls"],
   },
   {
     phase: "Next",
@@ -141,12 +134,12 @@ export const PROJECTS = [
   },
   {
     icon: ShieldCheck,
-    title: "SOC 2 Evidence Automation",
-    description: "Scripts and jobs that collect recurring SOC 2 control evidence automatically.",
+    title: "Automated Security Evidence",
+    description: "Scripts and jobs that collect recurring security evidence automatically.",
     problem: "Evidence collection was manual, slow, and easy to miss.",
     tools: ["Python", "AWS APIs", "GitHub Actions"],
     improvement: "Scheduled, timestamped evidence with consistent formatting.",
-    link: "https://github.com/your-username/soc2-evidence-automation",
+    link: "https://github.com/your-username/security-evidence-automation",
   },
 ];
 
@@ -155,26 +148,26 @@ export const SECURITY_FOCUS = [
   { title: "Vulnerability Remediation", body: "Triage by real risk, fix at the source, and verify the fix holds." },
   { title: "Secure Pipeline Checks", body: "SAST, dependency, secret, and image scans as build gates." },
   { title: "Least Privilege", body: "Scoped IAM roles and short-lived credentials over broad access." },
-  { title: "SOC 2 Control Mindset", body: "Technical work mapped to auditable, evidence-backed controls." },
   { title: "Shift-Left Security", body: "Findings surfaced in pull requests, not weeks after release." },
   { title: "Secure by Default", body: "Encryption, logging, and guardrails baked into the baseline." },
   { title: "Cloud Best Practices", body: "Monitoring, logging, and configuration aligned to AWS guidance." },
+  { title: "Continuous Verification", body: "Repeatable checks in pipelines so fixes stay fixed over time." },
 ];
 
 export const RESUME_HIGHLIGHTS = [
   "DevSecOps focus",
   "Cloud Security focus",
   "AppSec remediation",
-  "SOC 2 readiness",
+  "Container hardening",
   "Development background",
 ];
 
-export const LEARNING = ["SOC 2 Type II", "AWS Security Specialty", "Kubernetes hardening", "OPA / Policy as Code"];
+export const LEARNING = ["AWS Security Specialty", "Kubernetes hardening", "OPA / Policy as Code"];
 
 export const NOTES = [
   { title: "Hardening container base images", tag: "Containers" },
   { title: "Wiring security gates into CI/CD", tag: "Pipelines" },
-  { title: "Mapping AWS controls to SOC 2", tag: "Compliance" },
+  { title: "Automating AWS security baselines", tag: "Cloud" },
 ];
 
 export const NAV_LINKS = [
