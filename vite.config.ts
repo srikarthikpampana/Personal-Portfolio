@@ -58,7 +58,7 @@ export default defineConfig(({ mode, command }) => {
         // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
         server: { entry: "server" },
       }),
-      ...(command === "build" ? [nitro({ preset: "cloudflare-module" })] : []),
+      ...(command === "build" ? [nitro()] : []),
       viteReact(),
     ],
   };
