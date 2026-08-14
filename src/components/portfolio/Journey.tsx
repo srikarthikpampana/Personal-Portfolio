@@ -1,41 +1,15 @@
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef } from "react";
+import { motion, useScroll } from "motion/react";
 import { Section } from "./Section";
 import { RevealGroup, RevealItem } from "./Reveal";
 import { TIMELINE } from "./data";
 
-gsap.registerPlugin(ScrollTrigger);
-
 export function Journey() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const lineRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const container = containerRef.current;
-    const line = lineRef.current;
-    if (!container || !line) return;
-
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        line,
-        { scaleY: 0 },
-        {
-          scaleY: 1,
-          transformOrigin: "top",
-          ease: "none",
-          scrollTrigger: {
-            trigger: container,
-            start: "top center",
-            end: "bottom center",
-            scrub: true,
-          },
-        },
-      );
-    }, container);
-
-    return () => ctx.revert();
-  }, []);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start center", "end center"],
+  });
 
   return (
     <Section
@@ -46,7 +20,11 @@ export function Journey() {
     >
       <div ref={containerRef} className="relative">
         <div className="absolute inset-y-0 left-0 w-px bg-border" aria-hidden />
-        <div ref={lineRef} className="absolute inset-y-0 left-0 w-px bg-primary" aria-hidden />
+        <motion.div
+          style={{ scaleY: scrollYProgress, transformOrigin: "top" }}
+          className="absolute inset-y-0 left-0 w-px bg-primary"
+          aria-hidden
+        />
 
         <RevealGroup as="ol" className="relative space-y-6 pl-6 sm:pl-10" stagger={0.15}>
           {TIMELINE.map((item, i) => (
