@@ -34,7 +34,6 @@ export function Hero() {
         className="grid-pattern pointer-events-none absolute inset-0"
         aria-hidden
       />
-
       <motion.div
         initial="hidden"
         animate="visible"

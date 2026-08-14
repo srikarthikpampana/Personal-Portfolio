@@ -93,15 +93,21 @@
   --cyan: oklch(0.68 0.13 210);
   --cyan-foreground: oklch(0.18 0.03 250);
   --surface-glass: color-mix(in oklab, oklch(1 0 0) 70%, transparent);
-  --gradient-hero: radial-gradient(
+  --gradient-hero:
+    radial-gradient(
       70% 60% at 20% 0%,
       color-mix(in oklab, var(--primary) 18%, transparent),
       transparent 70%
     ),
-    radial-gradient(50% 50% at 90% 10%, color-mix(in oklab, var(--cyan) 18%, transparent), transparent 70%);
+    radial-gradient(
+      50% 50% at 90% 10%,
+      color-mix(in oklab, var(--cyan) 18%, transparent),
+      transparent 70%
+    );
   --gradient-accent: linear-gradient(100deg, var(--primary), var(--cyan));
   --shadow-soft: 0 1px 2px oklch(0.2 0.03 250 / 0.06), 0 12px 40px -16px oklch(0.2 0.03 250 / 0.18);
-  --shadow-glow: 0 0 0 1px color-mix(in oklab, var(--primary) 22%, transparent),
+  --shadow-glow:
+    0 0 0 1px color-mix(in oklab, var(--primary) 22%, transparent),
     0 20px 60px -24px color-mix(in oklab, var(--primary) 55%, transparent);
   --grid-line: color-mix(in oklab, var(--foreground) 7%, transparent);
   --chart-1: oklch(0.646 0.222 41.116);
@@ -245,7 +251,8 @@
 }
 
 @utility grid-pattern {
-  background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
     linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
   background-size: 56px 56px;
   mask-image: radial-gradient(70% 60% at 50% 20%, black, transparent 85%);

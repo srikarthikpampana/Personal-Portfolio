@@ -21,7 +21,10 @@ export function CursorGlow() {
     const updateTheme = () => setIsDark(document.documentElement.classList.contains("dark"));
     updateTheme();
     const themeObserver = new MutationObserver(updateTheme);
-    themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+    themeObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
 
     const onMove = (e: PointerEvent) => {
       x.set(e.clientX);
