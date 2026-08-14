@@ -1,6 +1,7 @@
 import { ArrowUpRight, Github, Hammer } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Section } from "./Section";
+import { RevealGroup, RevealItem } from "./Reveal";
 import { PROJECTS } from "./data";
 
 export function Projects() {
@@ -12,9 +13,9 @@ export function Projects() {
       description="Practical work across pipelines, containers, and cloud security baselines."
     >
       {PROJECTS.length === 0 ? (
-        <div className="grid gap-6 sm:grid-cols-2">
+        <RevealGroup className="grid gap-6 sm:grid-cols-2">
           {[1, 2].map((i) => (
-            <div
+            <RevealItem
               key={i}
               className="glass-card flex flex-col items-center justify-center rounded-2xl p-10 text-center"
             >
@@ -25,13 +26,17 @@ export function Projects() {
               <p className="mt-2 max-w-xs text-sm leading-relaxed text-muted-foreground">
                 This section is being updated with real project write-ups. Check back shortly.
               </p>
-            </div>
+            </RevealItem>
           ))}
-        </div>
+        </RevealGroup>
       ) : (
-        <div className="grid gap-6 lg:grid-cols-2">
+        <RevealGroup className="grid gap-6 lg:grid-cols-2">
           {PROJECTS.map((p) => (
-            <article key={p.title} className="glass-card flex flex-col rounded-2xl p-6 sm:p-7">
+            <RevealItem
+              key={p.title}
+              as="article"
+              className="glass-card flex flex-col rounded-2xl p-6 sm:p-7"
+            >
               <div className="flex items-start justify-between gap-4">
                 <span className="flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-secondary/70">
                   <p.icon className="h-5 w-5 text-primary" />
@@ -83,9 +88,9 @@ export function Projects() {
                   </a>
                 </Button>
               </div>
-            </article>
+            </RevealItem>
           ))}
-        </div>
+        </RevealGroup>
       )}
     </Section>
   );

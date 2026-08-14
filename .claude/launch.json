@@ -3,9 +3,9 @@
   "configurations": [
     {
       "name": "portfolio-dev",
-      "runtimeExecutable": "bun",
+      "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev"],
-      "port": 3000
+      "port": 8081
     }
   ]
 }

@@ -1,4 +1,5 @@
 import { Section } from "./Section";
+import { RevealGroup, RevealItem } from "./Reveal";
 import { SKILL_GROUPS } from "./data";
 
 export function Skills() {
@@ -9,9 +10,9 @@ export function Skills() {
       title="Tooling across cloud, pipelines, and security"
       description="The stack I use to build, harden, and verify systems."
     >
-      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <RevealGroup className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {SKILL_GROUPS.map((group) => (
-          <div key={group.title} className="glass-card rounded-xl p-6">
+          <RevealItem key={group.title} className="glass-card rounded-xl p-6">
             <div className="flex items-center gap-3">
               <span className="flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-secondary/70">
                 <group.icon className="h-4 w-4 text-primary" />
@@ -28,9 +29,9 @@ export function Skills() {
                 </span>
               ))}
             </div>
-          </div>
+          </RevealItem>
         ))}
-      </div>
+      </RevealGroup>
     </Section>
   );
 }

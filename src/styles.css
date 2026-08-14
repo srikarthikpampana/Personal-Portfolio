@@ -209,6 +209,11 @@
     font-family: var(--font-display);
     letter-spacing: -0.02em;
   }
+
+  html.custom-cursor,
+  html.custom-cursor * {
+    cursor: none !important;
+  }
 }
 
 @utility glass-card {

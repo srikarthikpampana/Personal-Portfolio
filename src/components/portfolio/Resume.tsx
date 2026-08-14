@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import { Check, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Section } from "./Section";
@@ -22,11 +23,17 @@ export function Resume() {
               </li>
             ))}
           </ul>
-          <Button asChild className="mt-7" size="lg">
-            <a href="/resume.pdf" download>
-              <Download className="mr-1 h-4 w-4" /> Download Resume
-            </a>
-          </Button>
+          <motion.div
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            className="mt-7 inline-block"
+          >
+            <Button asChild size="lg">
+              <a href="/resume.pdf" download>
+                <Download className="mr-1 h-4 w-4" /> Download Resume
+              </a>
+            </Button>
+          </motion.div>
         </div>
 
         <div className="glass-card rounded-2xl p-6 sm:p-8">
