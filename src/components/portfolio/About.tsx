@@ -2,10 +2,10 @@ import { Code2, Cloud, ShieldCheck, FileCheck } from "lucide-react";
 import { Section } from "./Section";
 
 const PILLARS = [
-  { icon: Code2, title: "Development background", body: "Comfortable reading and fixing code, not just reporting findings." },
-  { icon: Cloud, title: "Cloud & DevOps", body: "Hands-on with AWS, containers, CI/CD, and infrastructure as code." },
-  { icon: ShieldCheck, title: "Security remediation", body: "Container and application vulnerabilities fixed and verified." },
-  { icon: FileCheck, title: "Automation mindset", body: "Repeatable checks live in pipelines, not checklists — so fixes stay fixed." },
+  { icon: Cloud, title: "AWS Infrastructure", body: "Deploying applications across ECS, EC2, IAM, and other AWS services, with infrastructure defined in CDK." },
+  { icon: FileCheck, title: "CI/CD & Automation", body: "GitHub Actions pipelines built and maintained end-to-end." },
+  { icon: ShieldCheck, title: "Vulnerability Remediation", body: "Scanning and patching containers and applications via a remediation agent." },
+  { icon: Code2, title: "Deployment Debugging", body: "Enough development skill to debug and fix issues blocking a release." },
 ];
 
 export function About() {
@@ -14,23 +14,28 @@ export function About() {
       id="about"
       eyebrow="About"
       title="An engineer who bridges building and securing"
-      description="I started in development, moved into cloud and DevOps, and now work at the point where engineering meets security. That path means I fix vulnerabilities with the context of how the system was built — and automate the fix so it stays fixed."
+      description="I work across CI/CD, cloud infrastructure, and security remediation — building GitHub Actions pipelines, deploying applications on AWS with CDK, and maintaining a remediation agent that scans and patches container and application vulnerabilities."
     >
       <div className="grid gap-10 lg:grid-cols-[1.1fr_1fr]">
         <div className="space-y-5 text-base leading-relaxed text-muted-foreground">
           <p>
-            My day-to-day sits across container security remediation and application vulnerability
-            resolution: triaging scanner output, rebuilding and hardening images, patching dependencies,
-            and working with developers to close application findings properly rather than suppressing them.
+            My day-to-day centers on deploying and running applications on AWS — ECS containers, EC2
+            instances, IAM policies scoped per application, and other AWS services as each deployment
+            needs — with infrastructure defined as CDK stacks and delivered through CI/CD pipelines I
+            build and maintain in GitHub Actions.
           </p>
           <p>
-            Automation is the common thread across my work: if a check is repeatable, it belongs in a
-            pipeline, not a checklist. That mindset keeps fixes from regressing and lets security scale
-            with the platform instead of chasing it.
+            On the security side, I work on a remediation agent that scans containers and applications
+            for vulnerabilities and patches them — closing the gap between finding a CVE and actually
+            fixing it.
           </p>
           <p>
-            I am targeting DevSecOps and Cloud Security engineering roles at product-based companies, where
-            security is designed into the platform and measured continuously.
+            I also do enough development work to debug and resolve issues that come up during
+            deployment, so releases don't stall on problems I can fix myself.
+          </p>
+          <p>
+            I am building toward full DevSecOps and Cloud Security engineering roles, where this
+            remediation and infrastructure work becomes the core of the job, not a part of it.
           </p>
         </div>
 

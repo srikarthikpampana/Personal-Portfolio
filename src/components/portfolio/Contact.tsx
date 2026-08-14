@@ -4,8 +4,8 @@ import { PROFILE } from "./data";
 
 const ITEMS = [
   { icon: Mail, label: "Email", value: PROFILE.email, href: `mailto:${PROFILE.email}` },
-  { icon: Github, label: "GitHub", value: "github.com/your-username", href: PROFILE.github },
-  { icon: Linkedin, label: "LinkedIn", value: "linkedin.com/in/your-profile", href: PROFILE.linkedin },
+  { icon: Github, label: "GitHub", value: "github.com/srikarthikpampana", href: PROFILE.github },
+  { icon: Linkedin, label: "LinkedIn", value: "linkedin.com/in/srikarthikpampana", href: PROFILE.linkedin },
   { icon: MapPin, label: "Location", value: PROFILE.location, href: null },
 ];
 

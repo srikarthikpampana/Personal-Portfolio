@@ -77,14 +77,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Sri Karthik Pampana | DevOps → DevSecOps & Cloud Security" },
+      {
+        name: "description",
+        content:
+          "Portfolio of Sri Karthik Pampana, a DevOps Engineer building toward DevSecOps and Cloud Security.",
+      },
+      { name: "author", content: "Sri Karthik Pampana" },
+      { property: "og:title", content: "Sri Karthik Pampana | DevOps → DevSecOps & Cloud Security" },
+      {
+        property: "og:description",
+        content:
+          "Portfolio of Sri Karthik Pampana, a DevOps Engineer building toward DevSecOps and Cloud Security.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
