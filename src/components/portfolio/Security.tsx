@@ -5,9 +5,9 @@ export function Security() {
   return (
     <Section
       id="security"
-      eyebrow="Security & Compliance"
+      eyebrow="Security"
       title="How I approach secure engineering"
-      description="Principles I apply from the first commit through to audit evidence."
+      description="Principles I apply from the first commit through to production."
     >
       <div className="grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
         {SECURITY_FOCUS.map((item) => (

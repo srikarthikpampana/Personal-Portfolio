@@ -6,7 +6,7 @@ export function Journey() {
     <Section
       id="journey"
       eyebrow="Journey"
-      title="Development → Cloud → Security → Compliance"
+      title="Development → Cloud → Security → DevSecOps"
       description="One continuous path: each step built on the last, moving closer to security engineering."
     >
       <ol className="relative space-y-6 border-l border-border pl-6 sm:pl-10">
