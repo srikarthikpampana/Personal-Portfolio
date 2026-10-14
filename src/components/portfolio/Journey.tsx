@@ -1,60 +1,60 @@
-import { useRef } from "react";
-import { motion, useScroll } from "motion/react";
+import { BriefcaseBusiness } from "lucide-react";
 import { Section } from "./Section";
-import { RevealGroup, RevealItem } from "./Reveal";
-import { TIMELINE } from "./data";
+import { EXPERIENCE } from "./data";
 
 export function Journey() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start center", "end center"],
-  });
-
   return (
     <Section
-      id="journey"
-      eyebrow="Journey"
-      title="Development → Cloud → Security → DevSecOps"
-      description="One continuous path: each step built on the last, moving closer to security engineering."
+      id="experience"
+      eyebrow="Professional experience"
+      title="My roles, responsibilities & contributions"
+      description="Professional experience across DevOps, applied deep learning, and digital forensics."
     >
-      <div ref={containerRef} className="relative">
-        <div className="absolute inset-y-0 left-0 w-px bg-border" aria-hidden />
-        <motion.div
-          style={{ scaleY: scrollYProgress, transformOrigin: "top" }}
-          className="absolute inset-y-0 left-0 w-px bg-primary"
-          aria-hidden
-        />
-
-        <RevealGroup as="ol" className="relative space-y-6 pl-6 sm:pl-10" stagger={0.15}>
-          {TIMELINE.map((item, i) => (
-            <RevealItem key={item.title} as="li" className="relative">
-              <span
-                className={`absolute -left-[31px] top-6 h-3 w-3 rounded-full border-2 border-background sm:-left-[47px] ${
-                  i === TIMELINE.length - 1 ? "bg-cyan" : "bg-primary"
-                }`}
-              />
-              <div className="glass-card rounded-xl p-6">
-                <p className="font-mono text-xs uppercase tracking-[0.2em] text-primary">
-                  {item.phase}
-                </p>
-                <h3 className="mt-2 text-lg font-semibold">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.body}</p>
+      <ol className="space-y-5">
+        {EXPERIENCE.map((item) => (
+          <li key={item.company} className="glass-card rounded-2xl p-6 sm:p-8">
+            <div className="grid gap-5 md:grid-cols-[0.9fr_1.4fr] md:gap-10">
+              <div>
+                <div className="flex items-center gap-2">
+                  <BriefcaseBusiness className="h-4 w-4 text-primary" />
+                  {item.current && (
+                    <span className="rounded-full border border-primary/20 bg-primary/10 px-2 py-1 text-xs text-primary">
+                      Current role
+                    </span>
+                  )}
+                </div>
+                <h3 className="mt-3 text-xl font-semibold">{item.role}</h3>
+                <p className="mt-2 text-sm font-medium">{item.company}</p>
+                <p className="mt-2 text-sm text-muted-foreground">{item.dates}</p>
+              </div>
+              <div>
+                <p className="text-sm leading-relaxed text-muted-foreground">{item.summary}</p>
+                <ul className="mt-4 list-disc space-y-2 pl-4 text-sm leading-relaxed text-muted-foreground">
+                  {item.contributions.map((text) => (
+                    <li key={text}>{text}</li>
+                  ))}
+                </ul>
                 <div className="mt-4 flex flex-wrap gap-2">
-                  {item.tags.map((t) => (
+                  {item.tags.map((tag) => (
                     <span
-                      key={t}
-                      className="rounded-md border border-border bg-secondary/50 px-2 py-0.5 font-mono text-[11px] text-muted-foreground"
+                      key={tag}
+                      className="rounded-md border border-border px-2.5 py-1 text-xs text-muted-foreground"
                     >
-                      {t}
+                      {tag}
                     </span>
                   ))}
                 </div>
+                {item.current && (
+                  <p className="mt-5 border-t border-border pt-4 text-xs leading-relaxed text-muted-foreground">
+                    Company-owned work is summarized at a high level. Internal code and project
+                    architecture remain private.
+                  </p>
+                )}
               </div>
-            </RevealItem>
-          ))}
-        </RevealGroup>
-      </div>
+            </div>
+          </li>
+        ))}
+      </ol>
     </Section>
   );
 }

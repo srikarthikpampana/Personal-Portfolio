@@ -20,7 +20,7 @@ export function Section({
   return (
     <section
       id={id}
-      className={cn("scroll-mt-24 border-t border-border/60 py-20 sm:py-24", className)}
+      className={cn("scroll-mt-24 border-t border-border/60 py-14 sm:py-20", className)}
     >
       <div className="mx-auto w-full max-w-6xl px-5 sm:px-8">
         <Reveal className="max-w-2xl">
@@ -34,7 +34,7 @@ export function Section({
             <p className="mt-4 text-base leading-relaxed text-muted-foreground">{description}</p>
           ) : null}
         </Reveal>
-        <Reveal className="mt-12" delay={0.12}>
+        <Reveal className="mt-8 sm:mt-10" delay={0.12}>
           {children}
         </Reveal>
       </div>

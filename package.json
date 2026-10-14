@@ -9,7 +9,10 @@
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "prebuild": "node scripts/check-assets.mjs",
+    "check:assets": "node scripts/check-assets.mjs",
+    "check:site": "node scripts/check-site.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

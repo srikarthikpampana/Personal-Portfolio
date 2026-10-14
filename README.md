@@ -1,26 +1,39 @@
 # Sri Karthik Pampana — Portfolio
 
-Personal portfolio site for Sri Karthik Pampana, a DevOps Engineer building toward DevSecOps & Cloud Security.
-
-Built with TanStack Start, React, Vite, and Tailwind CSS.
+Portfolio built with TanStack Start, React, Vite, and Tailwind CSS.
 
 ## Development
 
-You need Node.js and npm.
+Use Node.js 22.12+ and the existing npm lockfile:
 
 ```sh
-npm install
+npm ci
 npm run dev
 ```
 
-## Build
+## Validation and production build
 
 ```sh
+npm run check:assets
+npx tsc --noEmit
 npm run build
+npm run check:site -- http://localhost:8080
 ```
 
-## Structure
+`check:assets` runs automatically before production builds. `check:site` requires a running server and can also be run against the deployed URL after release:
 
-- `src/components/portfolio/` — page sections (Hero, About, Skills, Journey, Projects, Security, Resume, Contact) and their shared content in `data.ts`.
-- `src/routes/` — TanStack Router routes.
-- `src/components/ui/` — shared UI primitives (shadcn/radix-based).
+```sh
+npm run check:site -- https://srikarthikpampana.vercel.app
+```
+
+It checks the homepage, personal case-study routes, PDF response, social-preview and indexing assets, sitemap coverage, and unknown-route 404 behavior. It also checks that company case-study URLs are absent from navigation and the sitemap and return 404.
+
+## Content
+
+- `src/components/portfolio/data.ts`: profile, dated experience, skills, certifications, and case studies.
+- `src/components/portfolio/`: homepage sections and architecture diagrams.
+- `src/routes/work/$slug.tsx`: shareable case-study pages and route-specific SEO metadata.
+- `public/resume.pdf`: supplied resume, served by every resume button.
+- `public/sitemap.xml`: homepage and case-study URLs. Update when adding case studies.
+
+Experience dates, education, completed certifications, and personal projects follow the supplied resume. Professional experience contains high-level role responsibilities. Company code, internal architecture, and detailed company case-study pages are excluded. Public case studies are limited to personal projects: DeepNet Guardian and the GCP CTFd deployment. Add public repository links and performance measurements only when verified.

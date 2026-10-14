@@ -1,120 +1,151 @@
-import { useRef } from "react";
-import { motion, useScroll, useTransform, type Variants } from "motion/react";
-import { ArrowRight, Mail, MapPin, Sparkles } from "lucide-react";
+import {
+  ArrowDown,
+  ArrowRight,
+  Cloud,
+  Download,
+  Github,
+  Linkedin,
+  MapPin,
+  ShieldCheck,
+  Workflow,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { PROFILE, LEARNING } from "./data";
+import { PROFILE } from "./data";
 
-const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 22 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } },
-};
+const FOCUS = [
+  {
+    icon: Cloud,
+    number: "01",
+    title: "Build the foundation",
+    body: "AWS CDK · ECS · scoped IAM roles",
+  },
+  {
+    icon: Workflow,
+    number: "02",
+    title: "Ship through automation",
+    body: "GitHub Actions · OIDC · MLOps",
+  },
+  {
+    icon: ShieldCheck,
+    number: "03",
+    title: "Close the security loop",
+    body: "Scan · patch · verify · pull request",
+  },
+];
 
 export function Hero() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end start"],
-  });
-  const auraY = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
-  const gridY = useTransform(scrollYProgress, [0, 1], ["0%", "8%"]);
-
   return (
-    <section
-      id="hero"
-      ref={sectionRef}
-      className="relative flex min-h-screen items-center overflow-hidden py-20"
-    >
-      <motion.div
-        style={{ y: auraY }}
-        className="hero-aura pointer-events-none absolute inset-0"
-        aria-hidden
-      />
-      <motion.div
-        style={{ y: gridY }}
-        className="grid-pattern pointer-events-none absolute inset-0"
-        aria-hidden
-      />
-      <motion.div
-        initial="hidden"
-        animate="visible"
-        transition={{ staggerChildren: 0.12, delayChildren: 0.1 }}
-        className="relative mx-auto flex w-full max-w-6xl flex-col items-center px-5 text-center sm:px-8"
-      >
-        <motion.div
-          variants={itemVariants}
-          className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary/60 px-3 py-1 font-mono text-xs text-muted-foreground"
-        >
-          <span className="h-1.5 w-1.5 rounded-full bg-cyan" />
-          Open to DevSecOps &amp; Cloud Security roles
-        </motion.div>
-
-        <motion.h1
-          variants={itemVariants}
-          className="mt-6 max-w-3xl text-4xl font-semibold leading-[1.08] sm:text-6xl"
-        >
-          {PROFILE.name}
-        </motion.h1>
-        <motion.p
-          variants={itemVariants}
-          className="gradient-text mt-4 max-w-3xl font-display text-lg font-medium sm:text-2xl"
-        >
-          {PROFILE.title}
-        </motion.p>
-        <motion.p
-          variants={itemVariants}
-          className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg"
-        >
-          {PROFILE.subtitle}
-        </motion.p>
-
-        <motion.div
-          variants={itemVariants}
-          className="mt-8 flex flex-wrap items-center justify-center gap-3"
-        >
-          <motion.div
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-            className="inline-block"
-          >
-            <Button asChild size="lg">
-              <a href="#projects">
-                View Projects <ArrowRight className="ml-1 h-4 w-4" />
+    <section id="hero" className="hero-aura relative overflow-hidden pt-28 pb-12 sm:pt-36 sm:pb-16">
+      <div className="grid-pattern pointer-events-none absolute inset-0" aria-hidden="true" />
+      <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
+        <div className="grid items-center gap-10 lg:grid-cols-[1.25fr_1fr] lg:gap-16">
+          <div>
+            <p className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-2 text-xs text-muted-foreground">
+              <span className="h-1.5 w-1.5 rounded-full bg-cyan" aria-hidden="true" />
+              Open to DevSecOps & Cloud Security roles
+            </p>
+            <h1 className="mt-6 max-w-xl text-[2.5rem] font-semibold leading-[1.08] tracking-tight sm:text-6xl">
+              {PROFILE.name}
+            </h1>
+            <p className="gradient-text mt-5 max-w-xl font-display text-lg font-medium sm:text-xl">
+              {PROFILE.title}
+            </p>
+            <p className="mt-5 max-w-lg text-base leading-relaxed text-muted-foreground sm:text-lg">
+              {PROFILE.subtitle}
+            </p>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <Button asChild size="lg" className="min-h-11">
+                <a href="#projects">
+                  View Projects <ArrowRight className="ml-1 h-4 w-4" />
+                </a>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="min-h-11">
+                <a href={PROFILE.resume} download="Sri-Karthik-Pampana-Resume.pdf">
+                  <Download className="mr-1 h-4 w-4" />
+                  Download Resume
+                </a>
+              </Button>
+            </div>
+            <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-muted-foreground">
+              <a
+                href={PROFILE.github}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex min-h-11 items-center gap-2 hover:text-foreground"
+              >
+                <Github className="h-4 w-4" />
+                GitHub
               </a>
-            </Button>
-          </motion.div>
-          <motion.div
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-            className="inline-block"
-          >
-            <Button asChild size="lg" variant="outline">
-              <a href="#contact">
-                <Mail className="mr-1 h-4 w-4" /> Contact Me
+              <a
+                href={PROFILE.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex min-h-11 items-center gap-2 hover:text-foreground"
+              >
+                <Linkedin className="h-4 w-4" />
+                LinkedIn
               </a>
-            </Button>
-          </motion.div>
-          <span className="inline-flex items-center gap-1.5 text-sm text-muted-foreground">
-            <MapPin className="h-4 w-4" /> {PROFILE.location}
-          </span>
-        </motion.div>
-
-        <motion.div
-          variants={itemVariants}
-          className="mt-10 flex flex-wrap items-center justify-center gap-2"
-        >
-          <span className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-widest text-primary">
-            <Sparkles className="h-3.5 w-3.5" /> Currently learning
-          </span>
-          {LEARNING.map((item) => (
-            <span
-              key={item}
-              className="rounded-full border border-border bg-secondary/60 px-3 py-1 text-xs text-muted-foreground"
-            >
-              {item}
-            </span>
+              <span className="inline-flex items-center gap-2">
+                <MapPin className="h-4 w-4" />
+                {PROFILE.location}
+              </span>
+            </div>
+          </div>
+          <div className="relative hidden rounded-2xl border border-primary/20 bg-card/70 p-5 shadow-[var(--shadow-soft)] sm:p-7 lg:block">
+            <div className="flex items-center justify-between border-b border-border pb-4">
+              <p className="font-mono text-xs uppercase tracking-[0.18em] text-primary">
+                Engineering focus
+              </p>
+              <ShieldCheck className="h-5 w-5 text-cyan" aria-hidden="true" />
+            </div>
+            <p className="mt-5 font-display text-2xl font-semibold">Build. Ship. Secure.</p>
+            <div className="mt-5 space-y-3">
+              {FOCUS.map((item) => (
+                <div
+                  key={item.number}
+                  className="flex items-start gap-3 rounded-xl border border-border bg-background/65 p-4"
+                >
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                    <item.icon className="h-4 w-4" />
+                  </span>
+                  <div>
+                    <p className="text-sm font-semibold">{item.title}</p>
+                    <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+                      {item.body}
+                    </p>
+                  </div>
+                  <span className="ml-auto font-mono text-xs text-muted-foreground">
+                    {item.number}
+                  </span>
+                </div>
+              ))}
+            </div>
+            <p className="mt-5 text-xs leading-relaxed text-muted-foreground">
+              Infrastructure and delivery experience, with security woven into the workflow.
+            </p>
+          </div>
+        </div>
+        <div className="mt-10 grid grid-cols-3 gap-3 border-t border-border/70 pt-6 sm:mt-12">
+          {[
+            { value: "AWS", label: "Cloud infrastructure" },
+            { value: "CI/CD", label: "Delivery automation" },
+            { value: "Security", label: "Remediation focus" },
+          ].map((item) => (
+            <div key={item.label}>
+              <p className="font-display text-2xl font-semibold sm:text-3xl">{item.value}</p>
+              <p className="mt-1 text-xs leading-relaxed text-muted-foreground sm:text-sm">
+                {item.label}
+              </p>
+            </div>
           ))}
-        </motion.div>
-      </motion.div>
+        </div>
+        <a
+          href="#projects"
+          className="mt-6 inline-flex min-h-11 items-center gap-2 font-mono text-xs text-muted-foreground hover:text-primary"
+        >
+          Explore personal projects <ArrowDown className="h-3.5 w-3.5" />
+        </a>
+      </div>
     </section>
   );
 }

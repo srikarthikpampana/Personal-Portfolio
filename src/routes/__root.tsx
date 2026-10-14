@@ -10,8 +10,6 @@ import {
 import type { ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import { PageLoadOverlay } from "../components/portfolio/PageLoadOverlay";
-import { CursorGlow } from "../components/portfolio/CursorGlow";
 
 function NotFoundComponent() {
   return (
@@ -110,7 +108,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "canonical", href: "https://srikarthikpampana.vercel.app/" },
       { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
       { rel: "icon", href: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
       { rel: "icon", href: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
@@ -131,6 +128,9 @@ function RootShell({ children }: { children: ReactNode }) {
         <HeadContent />
       </head>
       <body>
+        <a href="#main-content" className="skip-link">
+          Skip to content
+        </a>
         {children}
         <Scripts />
       </body>
@@ -143,8 +143,6 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <PageLoadOverlay />
-      <CursorGlow />
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
     </QueryClientProvider>

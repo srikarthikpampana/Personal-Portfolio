@@ -5,14 +5,14 @@ import { About } from "@/components/portfolio/About";
 import { Skills } from "@/components/portfolio/Skills";
 import { Journey } from "@/components/portfolio/Journey";
 import { Projects } from "@/components/portfolio/Projects";
-import { Security } from "@/components/portfolio/Security";
 import { Resume } from "@/components/portfolio/Resume";
 import { Contact } from "@/components/portfolio/Contact";
 import { Footer } from "@/components/portfolio/Footer";
+import { SITE_URL } from "@/components/portfolio/data";
 
-const TITLE = "Sri Karthik Pampana — DevSecOps & Cloud Security Engineer";
+const TITLE = "Sri Karthik Pampana — DevOps, DevSecOps & Cloud Security";
 const DESCRIPTION =
-  "Portfolio of Sri Karthik Pampana: DevSecOps and Cloud Security Engineer working across container security, AppSec remediation, AWS, and CI/CD.";
+  "DevOps Engineer building AWS infrastructure, GitHub Actions pipelines, MLOps platforms, and AI-assisted vulnerability remediation. Explore experience and case studies.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -21,9 +21,11 @@ export const Route = createFileRoute("/")({
       { name: "description", content: DESCRIPTION },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESCRIPTION },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:url", content: `${SITE_URL}/` },
+      { name: "twitter:title", content: TITLE },
+      { name: "twitter:description", content: DESCRIPTION },
     ],
+    links: [{ rel: "canonical", href: `${SITE_URL}/` }],
   }),
   component: Index,
 });
@@ -32,13 +34,12 @@ function Index() {
   return (
     <div className="min-h-screen bg-background">
       <Nav />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <Hero />
-        <About />
-        <Skills />
-        <Journey />
         <Projects />
-        <Security />
+        <Journey />
+        <Skills />
+        <About />
         <Resume />
         <Contact />
       </main>
